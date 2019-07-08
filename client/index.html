@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>connect four</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <h1 id="title">並べ四個</h1>
+  <div id="game-id"></div>
+  <div id="turn"></div>
+  <div id="reset-game" class="reset-game-hidden">
+    <div class="reset-game-inner">
+      <img id="reset-img" src="reset.png" alt="Reset">
+    </div>
+  </div>
+  <div id="start-dialogue">
+    <div class="start-section">
+      <div class="start-section-inner">
+          <div class="start-title">
+            Join Game
+          </div>
+          <div class="start-label">
+            Game Name
+          </div>
+          <div class="start-input">
+            <input type="text" name="join-game-name" id="join-input"
+            placeholder="..." maxlength="20">
+          </div>
+          <div class="start-button-outer">
+            <div id="join-button" class="button">
+              Join
+            </div>
+          </div>
+      </div>
+      <div id="join-error" class="error">
+      </div>
+    </div>
+    <div class="separator"></div>
+    <div class="start-section">
+      <div class="start-section-inner">
+        <div class="start-title">
+          Start Game
+        </div>
+        <div class="start-label">
+          Game Name
+        </div>
+        <div class="start-input">
+          <input type="text" name="start-game-name" id="start-input"
+            placeholder="..." maxlength="20">
+        </div>
+        <div class="start-button-outer">
+          <div id="start-button" class="button">
+            Start
+          </div>
+        </div>
+      </div>
+      <div id="start-error" class="error">
+      </div>
+    </div>
+  </div>
+  <div id="stripe"></div>
+  <canvas id="canvas"></canvas>
+  <script src="socket.io.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

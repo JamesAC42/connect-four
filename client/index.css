@@ -1,0 +1,264 @@
+@font-face {
+  font-family: 'Kosugi Maru';
+  src: url('Kosugi_Maru/KosugiMaru-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Questrial';
+  src: url('Questrial/Questrial-Regular.ttf');
+}
+
+body {
+  background:rgb(26, 26, 36);
+  overflow:hidden
+}
+
+div#stripe {
+  position:absolute;
+  height:300vh;
+  width:35vw;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%) rotate(45deg);
+  margin:0;
+  z-index:0;
+  background:rgb(15, 15, 22);
+}
+
+h1 {
+  display:block;
+  position:absolute;
+  left:0;
+  top:50%;
+  transform:translate(0,-60%);
+  font-size:5em;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  color:rgb(71, 71, 105);
+  margin:50px;
+  padding:0;
+  cursor:pointer;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+canvas#canvas {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+div#game-id {
+  position:absolute;
+  top:0;
+  right:0;
+  margin:20px;
+  font-size:2em;
+  font-family: 'Questrial', sans-serif;
+  color:#fff;
+  z-index:500;
+}
+
+div#turn {
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translate(-50%, 15vh);
+  text-align:center;
+  margin:0;
+  padding:0;
+  color:rgb(134, 142, 187);
+  font-family: 'Questrial', sans-serif;
+  font-size:2em;
+  z-index:500;
+}
+
+div#turn.win-a {
+  color: rgb(255, 0, 102);
+}
+
+div#turn.win-b {
+  color: rgb(0, 230, 172);
+}
+
+div#start-dialogue {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  height:40vh;
+  width:40vw;
+  padding:0;
+  margin:0;
+  background:rgb(229, 228, 255);
+  border-radius:20px;
+  z-index:1000;
+  display:flex;
+  flex-direction:row;
+  font-family: 'Questrial', sans-serif;
+  -webkit-box-shadow: 0px 10px 42px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 42px -7px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 42px -7px rgba(0,0,0,0.75);
+}
+
+div.start-dialogue-hidden {
+  transform:translate(100vw, 100vh) !important;
+}
+
+div.start-section {
+  height:40vh;
+  position:relative;
+  flex-grow:1;
+  margin:0;
+  padding:0;
+}
+
+div.separator {
+  height:40vh;
+  position:relative;
+  margin:0;
+  padding:0;
+  width:0;
+  border:1px solid rgb(61, 54, 122);
+}
+
+div.start-section-inner {
+  position:absolute;
+  top:50%;
+  transform:translateY(-55%);
+  width:100%;
+  height:25vh;
+  display:flex;
+  flex-direction:column;
+}
+
+div.start-title {
+  color:rgb(38, 47, 119);
+  text-align:center;
+  width:100%;
+  font-size:2.2em;
+  line-height:2em;
+  margin:0;
+  padding:0;
+  flex-grow:1;
+}
+
+div.start-label {
+  flex-grow:1;
+  font-size:1.2em;
+  text-align:center;
+  color:rgb(111, 103, 223);
+}
+
+div.start-input {
+  flex-grow:1.2;
+}
+
+div.start-input input {
+  text-align:center;
+  background:none;
+  border:none;
+  outline:none;
+  color:rgb(40, 50, 94);
+  width:100%;
+  height:50px;
+  font-size:1.4em;
+  border-bottom:1px solid rgb(111, 103, 223);
+  font-family: 'Questrial', sans-serif;
+}
+
+div.start-button-outer {
+  flex-grow:1;
+  position:relative;
+  width:100%;
+}
+
+div.button {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  height:40px;
+  line-height:40px;
+  width:120px;
+  border-radius: 10px;
+  text-align:center;
+  font-size:1.5em;
+  color:rgb(66, 59, 199);
+  border: 1px solid rgb(66, 59, 199);
+  cursor:pointer;
+  transition:all .15s ease-in-out;
+}
+
+div.button:hover {
+  background:rgb(66, 59, 199);
+  color:#fff;
+}
+
+div.error {
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  height:50px;
+  width:100%;
+  line-height:50px;
+  text-align:center;
+  font-size:1.2em;
+  width:100%;
+  color:rgb(231, 62, 62);
+}
+
+div#reset-game {
+  position:absolute;
+  top:50%;
+  right:0;
+  transform:translate(-20vw, -50%);
+  height:80px;
+  width:80px;
+  border:1px solid rgb(134, 142, 187);
+  border-radius:50%;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  cursor:pointer;
+  z-index:500;
+}
+
+div.reset-game-hidden {
+  transform:translate(200vw, 200vh) !important;
+}
+
+div#reset-game:hover {
+  background:rgb(134, 142, 187)
+}
+
+div.reset-game-inner {
+  position:relative;
+  height:80px;
+  width:80px;
+  margin:0;
+  padding:0;
+}
+
+img#reset-img {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:50px;
+  margin:0;
+}
+
+@keyframes spin {
+  0%{
+    transform:translate(-50%,-50%) rotate(0deg);
+  }
+  100%{
+    transform:translate(-50%,-50%) rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin .3s ease-in-out 1;
+}
